@@ -52,14 +52,14 @@ class UserController extends Controller
             return $this->doctorDashboard();
         }elseif(Sentinel::getUser()->inRole('manager')){
             return $this->managerDashboard();
+        }elseif(Sentinel::getUser()->inRole('receptionist')){
+            return $this->receptionistDashboard();
         }
     }
 
     private function adminDashboard(){
         $lineData = $this->adminlineChartData();
         $barData = $this->adminBarChartData();
-         
-
          //bed dues
          $patient   = patient::where('status','Active')->get();
          $bedCharge = 0;
@@ -191,6 +191,15 @@ class UserController extends Controller
        return view('dashboard.doctor-dashboard',compact('NumPres','NumDraftPres','PreMedi','Todayappoin','Prescription','DraftPres','barData'));
     }
 
+    private function receptionistDashboard(){
+        $totalTest     = BillItem::count('id');
+        $totalReport   = LabReport::where('status','Active')->count('invoice');
+        $todayReport   = LabReport::where('status','Active')->where('date',date('y-m-d'))->count('invoice');
+        $reportInvoice = LabReport::where('status','Active')->where('date',date('y-m-d'))->count('invoice');
+        $lst10reports  = LabReport::take(10)->where('status','Active')->orderBy('invoice','ASC')->get();
+        $lst10tests    = BillItem::take(10)->orderBy('id','ASC')->get();
+        return view('dashboard.receptionist-dashboard',compact('totalTest','totalReport','todayReport','reportInvoice','lst10reports','lst10tests'));
+    }
     private function laboratoryDashboard(){
         $totalTest     = BillItem::count('id');
         $totalReport   = LabReport::where('status','Active')->count('invoice');

@@ -42,10 +42,12 @@ Admission
                                     <a class="btn waves-effect waves-light text-light btn-xs btn-primary" href="{{url('hospital/admission/invoice/pos/'.$admission->invoice)}}"><i class="mdi mdi-format-align-justify"></i> Pos</a>
                                     <a class="btn waves-effect waves-light text-light btn-xs btn-info" href="{{url('hospital/admission/'.$admission->invoice.'/edit')}}"><i class="fa fa-info"></i> Service</a> 
                                     <a class="btn waves-effect waves-light text-light btn-xs btn-warning" href="{{url('hospital/admission/discharge/'.$admission->slug)}}"><i class="fa fa-edit"></i> Discharge</a> 
-                                    <form action="{{url('hospital/admission/void/'.$admission->slug)}}" method="post" style="margin-top:-2px" id="deleteButton{{$admission->id}}">
-                                        @csrf
-                                        <button type="submit" class="btn waves-effect waves-light btn-xs btn-danger" onclick="sweetalertDelete({{$admission->id}})"><i class="mdi mdi-backup-restore"></i> Void</button>
-                                    </form>
+                                    @if(Sentinel::getUser()->id == $admission->user_id || Sentinel::getUser()->inRole('admin'))
+                                        <form action="{{url('hospital/admission/void/'.$admission->slug)}}" method="post" style="margin-top:-2px" id="deleteButton{{$admission->id}}">
+                                            @csrf
+                                            <button type="submit" class="btn waves-effect waves-light btn-xs btn-danger" onclick="sweetalertDelete({{$admission->id}})"><i class="mdi mdi-backup-restore"></i> Void</button>
+                                        </form>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach

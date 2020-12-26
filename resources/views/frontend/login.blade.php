@@ -58,7 +58,7 @@
     </div>
 
     <section id="wrapper" class="login-register login-sidebar"  style="background-image:url({{!empty($siteInfo->login_banar) ? asset(Storage::url($siteInfo->login_banar)) : asset('material/assets/images/background/login-register.jpg')}});">
-        <div class="login-box card" style="background:#000000db; color:#fff !important;">
+        <div class="login-box card" style="background:#000000db; color:#fff !important; overflow-y:scroll">
           <div class="card-body log-from">
               <form class="form-horizontal login-form" id="loginform" action="{{route('process_login')}}" method="post">
                 <a href="javascript:void(0)" class="text-center db"><img style="width: 200px; height: auto;" src="{{!empty($siteInfo->logo) ? asset(Storage::url($siteInfo->logo)) : asset('logo.png')}}" alt="Home" /></a>
@@ -110,8 +110,27 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col-md-4  p-2">
+                        <div class="elements bg-custom text-center" id="manager">
+                            <div class="userArea pt-2">
+                                <i class="fa fa-user-secret font-44 mb-3"></i>
+                                <p class="text-center bg-text">Manager</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4  p-2">
+                        <div class="elements bg-custom text-center" id="receptionist">
+                            <div class="userArea pt-2">
+                                <i class="fa fa-user-secret font-44 mb-3"></i>
+                                <p class="text-center bg-text">Reception</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    {{-- <div class="col-md-4  p-2">
                         <div class="elements bg-custom text-center" id="hospital">
                             <div class="userArea pt-2">
                                 <i class="mdi mdi-hospital-building font-40"></i>
@@ -158,7 +177,7 @@
                                 <p class="text-center bg-text">Manager</p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
               
@@ -236,6 +255,11 @@
             });
             $('#manager').click(function(){
                 $('#email').val('manager@andit.com');
+                $('#password').val('123456');
+                hitLogin();
+            });
+            $('#receptionist').click(function(){
+                $('#email').val('receptionist@andit.com');
                 $('#password').val('123456');
                 hitLogin();
             });

@@ -29,7 +29,7 @@
                         <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('reports/*')?'true':'false'}}"><i class="mdi mdi-chart-areaspline"></i><span class="hide-menu"> Reports</span></a>
                         <ul aria-expanded="{{ Request::is('reports/*')?'true':'false'}}" class="collapse {{ Request::is('reports/')?'in':''}}">
                             <li>
-                                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('reports/')?'true':'false'}}"><i class="mdi mdi-chart-bar"></i><span class="hide-menu"> Pharma</span></a>
+                                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('reports/')?'true':'false'}}"><i class="mdi mdi-chart-bar"></i><span class="hide-menu"> Pharmacy</span></a>
                                 <ul aria-expanded="{{ Request::is('reports/')?'true':'false'}}" class="collapse {{ Request::is('reports/')?'in':''}}">
                                     @if(Sentinel::hasAccess('report-today'))
                             <li><a href="{{url('reports/today?start='.date('Y-m-d').'&end='.date('Y-m-d'))}}" class="{{ request()->is('reports/today') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Today's Report</a></li>
@@ -50,35 +50,29 @@
                             @if(Sentinel::hasAccess('report-sale'))
                                 <li><a href="{{url('reports/sales?start='.date('Y-m-01').'&end='.date('Y-m-t').'&customer=All')}}" class="{{ request()->is('reports/sales') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Sales Reports <sup class="newItem">New</sup></a></li>
                             @endif
-                            @if(Sentinel::hasAccess('report-sales-return'))
+                            {{-- @if(Sentinel::hasAccess('report-sales-return'))
                                 <li><a href="{{url('reports/sales-return?start='.date('Y-m-01').'&end='.date('Y-m-t').'&customer=All')}}" class="{{ request()->is('reports/sales-return') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Sales Returns <sup class="newItem">New</sup></a></li>
-                            @endif
+                            @endif --}}
                             @if(Sentinel::hasAccess('report-purchase'))
                                 <li><a href="{{url('reports/purchase?start='.date('Y-m-01').'&end='.date('Y-m-t').'&manufacturer=All')}}" class="{{ request()->is('reports/purchase') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Purchase Reports</a></li>
                             @endif
-                            @if(Sentinel::hasAccess('report-purchase-return'))
+                            {{-- @if(Sentinel::hasAccess('report-purchase-return'))
                                 <li><a href="{{url('reports/purchase-return?start='.date('Y-m-01').'&end='.date('Y-m-t').'&manufacturer=All')}}" class="{{ request()->is('reports/purchase-return') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Purchase Returns</a></li>
-                            @endif
-                            @if(Sentinel::hasAccess('report-expense'))
-                                <li><a href="{{url('reports/expense?start='.date('Y-m-01').'&end='.date('Y-m-t').'&category=All')}}" class="{{ request()->is('reports/expense') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Expense Reports <sup class="newItem">New</sup></a></li>
-                            @endif
+                            @endif --}}
+                            
                             @if(Sentinel::hasAccess('report-payments'))
                                 <li><a href="{{url('reports/payment?start='.date('Y-m-01').'&end='.date('Y-m-t').'&manufacturer=All')}}" class="{{ request()->is('reports/payment') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Supplier Payments</a></li>
                             @endif
                             @if(Sentinel::hasAccess('report-received'))
                                 <li><a href="{{url('reports/received?start='.date('Y-m-01').'&end='.date('Y-m-t').'&customer=All')}}" class="{{ request()->is('reports/received') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Cash On Sales</a></li>
                             @endif
-                            @if(Sentinel::hasAccess('report-cash-flow'))
-                                <li><a href="{{url('reports/cash-flow?start='.date('Y-m-01').'&end='.date('Y-m-t').'&type=All')}}" class="{{ request()->is('reports/cash-flow') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Cash Flow</a></li>
-                            @endif
+                            
                                 </ul>
                             </li>
                             <li>
                                 <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('reports/*')?'true':'false'}}"><i class="mdi mdi-chart-bar"></i><span class="hide-menu"> Diagnostic</span></a>
                                 <ul aria-expanded="{{ Request::is('reports/')?'true':'false'}}" class="collapse {{ Request::is('reports/')?'in':''}}">
                                     <li><a href="{{url('reports/diagnostic-today?start='.date('Y-m-d').'&end='.date('Y-m-d'))}}" class="{{ request()->is('reports/diagnostic-today') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Today's Report</a></li>
-                                    <li><a href="{{url('reports/expense?start='.date('Y-m-01').'&end='.date('Y-m-t').'&category=All')}}" class="{{ request()->is('reports/expense') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Expense Reports <sup class="newItem">New</sup></a></li>
-                                    <li><a href="{{url('reports/cash-flow?start='.date('Y-m-01').'&end='.date('Y-m-t').'&type=All')}}" class="{{ request()->is('reports/cash-flow') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Cash Flow</a></li>
                                     <li><a href="{{url('reports/delivary-test')}}" class="{{ request()->is('reports/delivary-test') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Today's delivery</a></li>
                                 </ul>
                              </li>
@@ -86,20 +80,27 @@
                                 <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('reports/*')?'true':'false'}}"><i class="mdi mdi-chart-bar"></i><span class="hide-menu"> Hospital</span></a>
                                 <ul aria-expanded="{{ Request::is('reports/')?'true':'false'}}" class="collapse {{ Request::is('reports/')?'in':''}}">
                                     <li><a href="{{url('reports/hospital-today?start='.date('Y-m-d').'&end='.date('Y-m-d'))}}" class="{{ request()->is('reports/hospital-today') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Today's Report</a></li>
-                                    <li><a href="{{url('reports/expense?start='.date('Y-m-01').'&end='.date('Y-m-t').'&category=All')}}" class="{{ request()->is('reports/expense') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Expense Reports <sup class="newItem">New</sup></a></li>
-                                    <li><a href="{{url('reports/cash-flow?start='.date('Y-m-01').'&end='.date('Y-m-t').'&type=All')}}" class="{{ request()->is('reports/cash-flow') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Cash Flow</a></li>
                                     <li><a href="{{url('reports/admission-report')}}" class="{{ request()->is('reports/admission-report') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Admission Today</a></li>
-                                    <li><a href="{{url('reports/admission-report')}}" class="{{ request()->is('reports/admission-report') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Emergency Today</a></li>
+                                    {{-- <li><a href="{{url('reports/admission-report')}}" class="{{ request()->is('reports/admission-report') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Emergency Today</a></li>
                                     <li><a href="{{url('reports/admission-report')}}" class="{{ request()->is('reports/admission-report') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Operation Today</a></li>
                                     <li><a href="{{url('reports/admission-report')}}" class="{{ request()->is('reports/admission-report') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Discharged Today</a></li>
-                                    <li><a href="{{url('reports/admission-report')}}" class="{{ request()->is('reports/admission-report') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Bed Service</a></li>
+                                    <li><a href="{{url('reports/admission-report')}}" class="{{ request()->is('reports/admission-report') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Bed Service</a></li> --}}
                                 </ul>
                             </li>
                             <li>
                                 <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('reports/*')?'true':'false'}}"><i class="mdi mdi-chart-bar"></i><span class="hide-menu"> Admin</span></a>
                                 <ul aria-expanded="{{ Request::is('reports/')?'true':'false'}}" class="collapse {{ Request::is('reports/')?'in':''}}">
                                     <li><a href="{{url('reports/admin-today?start='.date('Y-m-d').'&end='.date('Y-m-d'))}}" class="{{ request()->is('reports/admin-today') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Today's Report</a></li>
-                                    <li><a href="{{url('reports/admin-transaction?start='.date('Y-m-d').'&end='.date('Y-m-d').'&user=')}}" class="{{ request()->is('reports/admin-transaction') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> User Transaction</a></li>
+                                    <li><a href="{{url('reports/user-wise-transaction?start='.date('Y-m-d').'&end='.date('Y-m-d').'&user=')}}" class="{{ request()->is('reports/user-wise-transaction') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> User Transaction</a></li>
+                                    @if(Sentinel::hasAccess('report-cash-flow'))
+                                        <li><a href="{{url('reports/cash-flow?start='.date('Y-m-01').'&end='.date('Y-m-t').'&type=All')}}" class="{{ request()->is('reports/cash-flow') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Cash Flow</a></li>
+                                    @endif
+                                    {{-- @if(Sentinel::hasAccess('report-expense'))
+                                        <li><a href="{{url('reports/expense?start='.date('Y-m-01').'&end='.date('Y-m-t').'&category=All')}}" class="{{ request()->is('reports/expense') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Expense Reports <sup class="newItem">New</sup></a></li>
+                                    @endif --}}
+
+
+
                                     {{-- <li><a href="{{url('reports/expense?start='.date('Y-m-01').'&end='.date('Y-m-t').'&category=All')}}" class="{{ request()->is('reports/expense') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Expense Reports <sup class="newItem">New</sup></a></li>
                                     <li><a href="{{url('reports/cash-flow?start='.date('Y-m-01').'&end='.date('Y-m-t').'&type=All')}}" class="{{ request()->is('reports/cash-flow') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Cash Flow</a></li>
                                     <li><a href="{{url('reports/admission-report')}}" class="{{ request()->is('reports/admission-report') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Admission Today</a></li>
@@ -252,7 +253,8 @@
                         <li><a href="{{ url('referral') }}" class="{{ request()->is('referral/*') && !request()->is('referral/create') ? 'active' : '' }}"><i class="mdi  mdi-transit-transfer"></i> Referrals</a></li>
                     </ul>
                 </li>
-                <li class="{{ request()->is('hrm/*') ? 'active' : '' }}">
+
+                {{-- <li class="{{ request()->is('hrm/*') ? 'active' : '' }}">
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('hrm/*')?'true':'false'}}"><i class="icon-people"></i><span class="hide-menu"> HRM</span></a>
                     <ul aria-expanded="{{ Request::is('hrm/*')?'true':'false'}}" class="collapse {{ Request::is('hrm/*')?'in':''}}"> 
                         
@@ -285,14 +287,15 @@
 
                 <li class="{{ request()->is('asset/*') ? 'active' : '' }}">
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('asset/*')?'true':'false'}}"><i class=" mdi mdi-desktop-mac"></i><span class="hide-menu"> Asset</span></a>
-                    <ul aria-expanded="{{ Request::is('asset/*')?'true':'false'}}" class="collapse {{ Request::is('asset/*')?'in':''}}"> 
-                                               
-                            <li><a href="{{ url('asset/category') }}" class="{{ request()->is('asset/category') ? 'active' : '' }}"><i class=" mdi mdi-deskphone"></i> Asset Category</a></li>
-                            <li><a href="{{ url('asset/location') }}" class="{{ request()->is('asset/location') ? 'active' : '' }}"><i class="mdi mdi-desktop-tower"></i> Asset Location</a></li>
-                            <li><a href="{{ url('asset/equipment') }}" class="{{ request()->is('asset/equipment/*') && !request()->is('asset/equipment') ? 'active' : '' }}"><i class="mdi mdi-flask-empty"></i>  Asset Equipment</a></li>
-                       
+                    <ul aria-expanded="{{ Request::is('asset/*')?'true':'false'}}" class="collapse {{ Request::is('asset/*')?'in':''}}">                 
+                        <li><a href="{{ url('asset/category') }}" class="{{ request()->is('asset/category') ? 'active' : '' }}"><i class=" mdi mdi-deskphone"></i> Asset Category</a></li>
+                        <li><a href="{{ url('asset/location') }}" class="{{ request()->is('asset/location') ? 'active' : '' }}"><i class="mdi mdi-desktop-tower"></i> Asset Location</a></li>
+                        <li><a href="{{ url('asset/equipment') }}" class="{{ request()->is('asset/equipment/*') && !request()->is('asset/equipment') ? 'active' : '' }}"><i class="mdi mdi-flask-empty"></i>  Asset Equipment</a></li>
                     </ul>
-                    </li>
+                </li> --}}
+
+
+
                 {{-- @if(Sentinel::hasAccess('sale-management')) --}}
                     {{-- <li class="{{ request()->is('sale/*') ? 'active' : '' }}">
                         <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('sale*')?'true':'false'}}"><i class="mdi mdi-scale-balance"></i><span class="hide-menu"> Sales</span></a>
@@ -411,7 +414,8 @@
                         </ul>
                     </li>
                 @endif
-                @if(Sentinel::hasAccess('expense-management'))
+
+                {{-- @if(Sentinel::hasAccess('expense-management'))
                     <li class="{{ request()->is('expense/*') ? 'active' : '' }}">
                         <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('bankaccount/*')?'true':'false'}}"><i class="mdi mdi-chart-scatterplot-hexbin"></i><span class="hide-menu"> Expense</span></a>
                         <ul aria-expanded="{{ Request::is('expense/*')?'true':'false'}}" class="collapse {{ Request::is('expense/*')?'in':''}}">
@@ -436,7 +440,8 @@
                             @endif
                         </ul>
                     </li>
-                @endif
+                @endif --}}
+
                 @if(Sentinel::hasAccess('tax-management'))
                     <li class="{{ request()->is('taxes*') ? 'active' : '' }}">
                         <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('taxes*')?'true':'false'}}"><i class="mdi mdi-ticket-percent"></i><span class="hide-menu"> Taxes</span></a>

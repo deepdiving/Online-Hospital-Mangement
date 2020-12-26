@@ -20,18 +20,20 @@
                                 <label for="text">{{ __('messages.date_to') }}</label>
                                 <input type="text" name="end" value="{{ ($data['end'] == '-') ? '-' : date('Y-m-d',strtotime($data['end']))}}" class="form-control datepickerDB">
                             </div>
+                            @if(Sentinel::getUser()->inRole('admin'))
                             <div class="form-group">
                                 <label for="text">User</label>
                                 <select name="user" id="user" class="form-control">
                                     <option value="">Select User</option>
                                     @foreach ($users as $row)
-                                        <option value="{{ $row->id}}">{{ $row->name }}</option>
+                                        <option value="{{ $row->id}}" {{$row->id == $data['user'] ? 'selected' : ''}}>{{ $row->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
+                            @endif
                             <div class="form-group">
                                 <button class="btn search-btn"><i class="fa fa-search"></i></button>
-                                <a class="btn search-btn-reset" href="{{url('reports/admin-transaction')}}"><i class="fa fa-refresh"></i></a>
+                                <a class="btn search-btn-reset" href="{{url('reports/user-wise-transaction')}}"><i class="fa fa-refresh"></i></a>
                                 <button type="button" class="btn btn-success ml-3" style="padding: 10px 15px; border-radius:0px" onclick="invoiceprint()"> <i class="mdi mdi-printer"> </i> {{ __('messages.print') }} </button>
                             </div>
                         </form>
@@ -46,7 +48,7 @@
                     <div class="Content" id="printJS-form">
                         <div class="invoiceHead text-center">
                             <h2>Admin - {{$siteInfo->site_name}}</h2>
-                            <h3>User Income Statemetn</h3>
+                            <h3>User Income Statement</h3>
                             <h4>{{ __('messages.from')}} <b>{{ ($data['start'] == '-') ? 'First' : date('dS M Y', strtotime($data['start']))}} </b> {{ __('messages.to')}} <b>{{ ($data['end'] == '-') ? 'Last' : date('dS M Y', strtotime($data['end']))}}</b></h4>
                         </div>
                         <hr class="hr-borderd">

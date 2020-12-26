@@ -52,12 +52,12 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
-    'asset_url' => 'http://localhost/andit-hms/public',
+    'url' => env('APP_URL', 'http://localhost/Online-Hospital-Mangement'),
+    // 'asset_url' => 'http://localhost/andit-hms/public',
     // 'url' => env('APP_URL', 'https://lit-mesa-43991.herokuapp.com/'),
     // 'asset_url' => 'https://lit-mesa-43991.herokuapp.com/public',
 
-    // 'asset_url' => env('ASSET_URL', null),
+    'asset_url' => env('ASSET_URL', 'http://localhost/Online-Hospital-Mangement/public'),
 
     /*
     |--------------------------------------------------------------------------

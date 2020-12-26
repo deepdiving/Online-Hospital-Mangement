@@ -22,7 +22,7 @@ class DocAppointmentController extends Controller{
 
     public function index(){
         $doctors = Doctor::where('status','Active')->get();
-        $appointments = DocAppointment::all();
+        $appointments = DocAppointment::orderBy('id','DESC')->get();
         $confirmdAppoints = DocAppointment::where('status','Confirmed')->get();
         $calendarEvents = DocAppointment::where('status','!=','Void')->groupBy('doctor_id', 'date')->get(); //where('date','>=',date('Y-m-d')) 
         $patients = Patient::Active()->get();
@@ -205,9 +205,9 @@ class DocAppointmentController extends Controller{
 
     Public function appointmentList(Request $request){
         $search = [
-            'date'   => '-',
+            'date'   => date('Y-m-d'),
             'doctor' => '',
-            'status' => '',
+            'status' => 'Paid',
         ];
         $appoint = New DocAppointment;
         if($request->has('date') && $request->date != '-'){
@@ -223,7 +223,7 @@ class DocAppointmentController extends Controller{
             $search['status'] = $request->status;
         }
         $doctors = Doctor::where('status','Active')->get();
-        $appointmentList =  $appoint->get();
+        $appointmentList =  $appoint->orderBy('id','DESC')->get();
         return view('doctor_module.appointment.appointmentList',compact('appointmentList','search','doctors'));
     }
 

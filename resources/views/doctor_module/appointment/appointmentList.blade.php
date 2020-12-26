@@ -22,7 +22,7 @@ Appointment List
                             <select name="doctor" id="doctor" class="form-control">
                                 <option value="">Select Doctor</option>
                                 @foreach ($doctors as $row)
-                                    <option value="{{ $row->id}}">{{ $row->full_name }}</option>
+                                    <option value="{{ $row->id}}" {{$search['doctor'] == $row->id ? 'selected': ''}}>{{ $row->full_name }}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -218,7 +218,7 @@ class ReportController extends Controller{
             $receive = $receive->where('date','<=',$request->end);
             $search['end'] = $request->end;
         }
-        $received = $receive->with('patient')->where('status','Active')->where('vendor','Patient')->orderBy('id','DESC')->get();
+        $received = $receive->with('patient')->where('status','Active')->where('module','Pharmacy')->where('vendor','Patient')->orderBy('id','DESC')->get();
 
         $customers = Patient::where('status','Active')->get();
         return view('reports.receivedReport',compact('received','search','customers'));
@@ -592,7 +592,7 @@ class ReportController extends Controller{
         $data = [
             'start' => date('-'),
             'end'   => date('-'),
-            'user'  => '', 
+            'user'  => 0, 
         ];
 
         $userTransaction = New Transation;
@@ -605,13 +605,12 @@ class ReportController extends Controller{
             $userTransaction    = $userTransaction->where('date','<=',$request->start); 
             $data['end']        = $request->end;
         }
-        if($request->has('user') && $request->user != '-'){
-            $userTransaction    = $userTransaction->where('user_id',$request->user); 
+        if($request->has('user') && $request->user != 0){
+            $userTransaction     = $userTransaction->where('user_id',$request->user); 
             $data['user']        = $request->user;
-        }  
+        }
         $users = User::all();
-        $user_trans = $data['user_tranaction'] = $userTransaction->where('status','Active')->get(); 
-
+        $user_trans = $data['user_tranaction'] = $userTransaction->where('status','Active')->get();
         return view('reports.userwiseTransaction',compact('siteInfo','data','user_trans','users'));
     }
 

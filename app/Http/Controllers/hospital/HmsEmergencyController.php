@@ -33,7 +33,7 @@ class HmsEmergencyController extends Controller
     }
     
     public function index(){
-        $emergency_data = HmsEmergency::orderBy('id','desc')->where('status','Active')->get();
+        $emergency_data = HmsEmergency::orderBy('id','desc')->where('status','Active')->orderBy('id','DESC')->get();
         return view('hospital.emergency.index',compact('emergency_data'));
     }
 

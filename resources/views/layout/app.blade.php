@@ -80,6 +80,8 @@
             @include('layout.inc.sidebar.doctor-sidebar')
         @elseif(Sentinel::getUser()->inRole('manager'))
             @include('layout.inc.sidebar.manager-sidebar')
+        @elseif(Sentinel::getUser()->inRole('receptionist'))
+            @include('layout.inc.sidebar.receptionist-sidebar')
         @else    
             @include('layout.inc.sidebar.sidebar')
         @endif

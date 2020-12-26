@@ -63,7 +63,7 @@
                             <div class="form-group row {{ $errors->has('price') ? ' has-danger' : '' }}">
                                 <label for="price" class="col-sm-3 text-right control-label col-form-label">{{__('messages.price_in')}} <sup class="text-danger font-bold">*</sup> :</label>
                                 <div class="col-sm-9">
-                                    <input type="number" name="price" value="{{old('price')}}" readonly class="form-control" id="price" placeholder="Price" required autocomplete="off">
+                                    <input type="text" name="price" value="{{old('price')}}" readonly class="form-control" id="price" placeholder="Price" required autocomplete="off">
                                     @include('elements.feedback',['field' => 'price'])
                                 </div>
                             </div>       
@@ -77,14 +77,14 @@
                             <div class="form-group row {{ $errors->has('grand_total') ? ' has-danger' : '' }}">
                                 <label for="grand_total" class="col-sm-3 text-right control-label col-form-label">Grand Total <sup class="text-danger font-bold">*</sup> :</label>
                                 <div class="col-sm-9">
-                                    <input type="number" name="grand_total" readonly value="{{old('grand_total')}}" class="form-control" id="grand_total" placeholder="grand_total" required autocomplete="off">
+                                    <input type="text" name="grand_total" readonly value="{{old('grand_total')}}" class="form-control" id="grand_total" placeholder="grand_total" required autocomplete="off">
                                     @include('elements.feedback',['field' => 'grand_total'])
                                 </div>
                             </div>       
                             <div class="form-group row {{ $errors->has('paid_amount') ? ' has-danger' : '' }}">
                                 <label for="paid_amount" class="col-sm-3 text-right control-label col-form-label">Pay Amount <sup class="text-danger font-bold">*</sup> :</label>
                                 <div class="col-sm-9">
-                                    <input type="number" name="paid_amount" value="{{old('paid_amount')}}" class="form-control" id="paid_amount" placeholder="Paid Amount" required autocomplete="off">
+                                    <input type="text" name="paid_amount" value="{{old('paid_amount')}}" class="form-control" id="paid_amount" placeholder="Paid Amount" required autocomplete="off">
                                     @include('elements.feedback',['field' => 'paid_amount'])
                                 </div>
                             </div>
@@ -153,12 +153,14 @@
                                         <td class="text-right">{{ Pharma::amountFormatWithCurrency($row->due)}}</td>  
                                         <td style="display: flex; justify-content: space-evenly;">  
                                         <a class="btn waves-effect waves-light text-light btn-xs btn-primary" href="{{url('hospital/operation/invoice/a4/'.$row->invoice)}}"><i class="mdi mdi-format-align-justify"></i> A4</a> 
-                                        <a class="btn waves-effect waves-light text-light btn-xs btn-primary" href="{{url('hospital/operation/invoice/pos/'.$row->invoice)}}"><i class="mdi mdi-format-align-justify"></i> Pos</a>   
+                                        <a class="btn waves-effect waves-light text-light btn-xs btn-primary" href="{{url('hospital/operation/invoice/pos/'.$row->invoice)}}"><i class="mdi mdi-format-align-justify"></i> Pos</a>
+                                        @if(Sentinel::getUser()->id == $row->user_id || Sentinel::getUser()->inRole('admin'))
                                         <a class="btn waves-effect waves-light text-light btn-xs btn-warning" href="{{ url('hospital/operation/'.$row->slug.'/edit') }}"><i class="fa fa-edit"></i></a>   
                                         <form action="{{url('hospital/operation/void/'.$row->slug)}}" method="post" style="margin-top:-2px" id="deleteButton{{$row->id}}">
                                             @csrf
                                             <button type="submit" class="btn waves-effect waves-light btn-xs btn-danger" onclick="sweetalertDelete({{$row->id}})"><i class="mdi mdi-backup-restore"></i> Void</button>
                                         </form>
+                                        @endif
                                     </tr> 
                                     @endforeach                        
                                 </tbody>
@@ -230,6 +232,7 @@
         });
 
         $('#operation_service_id').change(function(){
+            console.log('asdfasdf');
             const operation_service_id = parseFloat($(this).val())||0;
             $.ajax({
                 type: "GET",
@@ -237,6 +240,7 @@
                 data: "data",
                 dataType: "text",
                 success: function (response) {
+                    console.log(response);
                     $('#price').val(response);
                     $('#grand_total').val(response);
                     $('#paid_amount').val(response);

@@ -38,11 +38,13 @@ Emergency
                                 <td style="display: flex; justify-content: space-evenly;">
                                     <a class="btn waves-effect waves-light text-light btn-xs btn-primary" href="{{url('hospital/emergency/invoice/a4/'.$emr->invoice)}}"><i class="mdi mdi-format-align-justify"></i> A4</a> 
                                     <a class="btn waves-effect waves-light text-light btn-xs btn-primary" href="{{url('hospital/emergency/invoice/pos/'.$emr->invoice)}}"><i class="mdi mdi-format-align-justify"></i> Pos</a> 
-                                    <a class="btn waves-effect waves-light text-light btn-xs btn-warning" href="{{url('hospital/emergency/'.$emr->invoice.'/edit')}}"><i class="fa fa-edit"></i> Edit</a> 
-                                    <form action="{{url('hospital/emergency/void/'.$emr->slug)}}" method="post" style="margin-top:-2px" id="deleteButton{{$emr->id}}">
-                                        @csrf
-                                        <button type="submit" class="btn waves-effect waves-light btn-xs btn-danger" onclick="sweetalertDelete({{$emr->id}})"><i class="mdi mdi-backup-restore"></i> Void</button>
-                                    </form>
+                                    @if(Sentinel::getUser()->id == $emr->user_id || Sentinel::getUser()->inRole('admin'))
+                                        <a class="btn waves-effect waves-light text-light btn-xs btn-warning" href="{{url('hospital/emergency/'.$emr->invoice.'/edit')}}"><i class="fa fa-edit"></i> Edit</a> 
+                                        <form action="{{url('hospital/emergency/void/'.$emr->slug)}}" method="post" style="margin-top:-2px" id="deleteButton{{$emr->id}}">
+                                            @csrf
+                                            <button type="submit" class="btn waves-effect waves-light btn-xs btn-danger" onclick="sweetalertDelete({{$emr->id}})"><i class="mdi mdi-backup-restore"></i> Void</button>
+                                        </form>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach

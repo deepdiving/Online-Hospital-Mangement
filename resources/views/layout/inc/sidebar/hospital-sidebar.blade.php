@@ -120,10 +120,10 @@
                         <li><a href="{{url('reports/expense?start='.date('Y-m-01').'&end='.date('Y-m-t').'&category=All')}}" class="{{ request()->is('reports/expense') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Expense Reports <sup class="newItem">New</sup></a></li>
                         <li><a href="{{url('reports/cash-flow?start='.date('Y-m-01').'&end='.date('Y-m-t').'&type=All')}}" class="{{ request()->is('reports/cash-flow') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Cash Flow</a></li>
                         <li><a href="{{url('reports/admission-report')}}" class="{{ request()->is('reports/admission-report') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Admission Today</a></li>
-                        <li><a href="{{url('reports/admission-report')}}" class="{{ request()->is('reports/admission-report') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Emergency Today</a></li>
+                        {{-- <li><a href="{{url('reports/admission-report')}}" class="{{ request()->is('reports/admission-report') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Emergency Today</a></li>
                         <li><a href="{{url('reports/admission-report')}}" class="{{ request()->is('reports/admission-report') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Operation Today</a></li>
                         <li><a href="{{url('reports/admission-report')}}" class="{{ request()->is('reports/admission-report') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Discharged Today</a></li>
-                        <li><a href="{{url('reports/admission-report')}}" class="{{ request()->is('reports/admission-report') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Bed Service</a></li>
+                        <li><a href="{{url('reports/admission-report')}}" class="{{ request()->is('reports/admission-report') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> Bed Service</a></li> --}}
                     </ul>
                 </li>
 

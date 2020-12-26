@@ -36,15 +36,17 @@ Bill
                                 <td>{{ $bill->patient->patient_name }}</td>
                                 <td class="text-right">{{ Pharma::amountFormatWithCurrency($bill->actual_paid_amount) }}</td>
                                 <td class="text-right">{{ Pharma::amountFormatWithCurrency($bill->due) }}</td>
-                                <td>{{ $bill->referral->name }}</td> 
+                                <td>{{ $bill->referral->name }}</td>
                                 <td style="display: flex; justify-content: space-evenly;">
                                     <a class="btn waves-effect waves-light text-light btn-xs btn-primary" href="{{url('diagnostic/bill/invoice/a4/'.$bill->invoice)}}"><i class="mdi mdi-format-align-justify"></i> A4</a> 
                                     <a class="btn waves-effect waves-light text-light btn-xs btn-primary" href="{{url('diagnostic/bill/invoice/pos/'.$bill->invoice)}}"><i class="mdi mdi-format-align-justify"></i> Pos</a>
-                                    <a class="btn waves-effect waves-light text-light btn-xs btn-warning" href="{{url('diagnostic/bill/'.$bill->invoice.'/edit')}}"><i class="fa fa-edit"></i> Edit</a> 
-                                    <form action="{{url('diagnostic/bill/void/'.$bill->slug)}}" method="post" style="margin-top:-2px" id="deleteButton{{$bill->id}}">
-                                        @csrf
-                                        <button type="submit" class="btn waves-effect waves-light btn-xs btn-danger" onclick="sweetalertDelete({{$bill->id}})"><i class="mdi mdi-backup-restore"></i> Void</button>
-                                    </form>
+                                    @if(Sentinel::getUser()->id == $bill->user_id || Sentinel::getUser()->inRole('admin'))
+                                        <a class="btn waves-effect waves-light text-light btn-xs btn-warning" href="{{url('diagnostic/bill/'.$bill->invoice.'/edit')}}"><i class="fa fa-edit"></i> Edit</a> 
+                                        <form action="{{url('diagnostic/bill/void/'.$bill->slug)}}" method="post" style="margin-top:-2px" id="deleteButton{{$bill->id}}">
+                                            @csrf
+                                            <button type="submit" class="btn waves-effect waves-light btn-xs btn-danger" onclick="sweetalertDelete({{$bill->id}})"><i class="mdi mdi-backup-restore"></i> Void</button>
+                                        </form>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach

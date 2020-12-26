@@ -63,7 +63,7 @@ Route::group(['prefix' => 'reports'], function () {
     Route::get('diagnostic-today', 'ReportController@diagon_today');
     Route::get('hospital-today', 'ReportController@hodpital_today');
     Route::get('admin-today','ReportController@admin_today');
-    Route::get('admin-transaction','ReportController@user_trans');
+    Route::get('user-wise-transaction','ReportController@user_trans');
     Route::get('sales', 'ReportController@sales');
     Route::get('sales-return', 'ReportController@salesReturn');
     Route::get('today', 'ReportController@today');

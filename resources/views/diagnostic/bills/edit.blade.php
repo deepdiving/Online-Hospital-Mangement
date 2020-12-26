@@ -26,38 +26,7 @@
             font-weight: bold;
         }
 
-    .calculator {
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
 
-    .calculator-screen {
-      width: 100%;
-      height: 80px;
-      border: none;
-      background-color: #252525;
-      color: #fff;
-      text-align: right;
-      padding-right: 20px;
-      padding-left: 10px;
-      font-size: 4rem;
-    }
-
-    .calculator-keys button {
-      height: 60px;
-      font-size: 2rem!important;
-    }
-
-    .equal-sign {
-        height: 100% !important;
-        grid-area: 3 / 4 / 6 / 5;
-    }
-    .calculator-keys {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-gap: 20px;
-      padding: 20px;
-    }
     .test-list-scroll{
         width: 100%;
         height: 745px;
@@ -134,7 +103,7 @@
 
             <div class="row">
                 <!-- Column -->
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-row">
@@ -146,6 +115,8 @@
                             </div>
                         </div>
                     </div>
+                    </div>
+                    <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-row">
@@ -157,6 +128,8 @@
                             </div>
                         </div>
                     </div>
+                    </div>
+                    <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-row">
@@ -168,6 +141,8 @@
                             </div>
                         </div>
                     </div>
+                    </div>
+                    <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-row">
@@ -176,43 +151,6 @@
                                     <h3 class="m-b-0 font-lgiht">{{$TodayBillCount}}</h3>
                                     <h5 class="text-muted m-b-0">#Invoice</h5>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-8">
-                    <div class="card" style="margin-bottom: 0px !important;">
-                        <div class="calculator card" style="margin-bottom: 0px !important;">
-
-                            <input type="text" class="calculator-screen z-depth-1" value="" disabled />
-
-                            <div class="calculator-keys">
-
-                                <button type="button" class="operator btn btn-info" value="+">+</button>
-                                <button type="button" class="operator btn btn-info" value="-">-</button>
-                                <button type="button" class="operator btn btn-info" value="*">&times;</button>
-                                <button type="button" class="operator btn btn-info" value="/">&divide;</button>
-
-                                <button type="button" value="7" class="btn btn-light waves-effect">7</button>
-                                <button type="button" value="8" class="btn btn-light waves-effect">8</button>
-                                <button type="button" value="9" class="btn btn-light waves-effect">9</button>
-                                <button type="button" class="operator btn btn-info" value="%">%</button>
-
-                                <button type="button" value="4" class="btn btn-light waves-effect">4</button>
-                                <button type="button" value="5" class="btn btn-light waves-effect">5</button>
-                                <button type="button" value="6" class="btn btn-light waves-effect">6</button>
-
-                                <button type="button" value="1" class="btn btn-light waves-effect">1</button>
-                                <button type="button" value="2" class="btn btn-light waves-effect">2</button>
-                                <button type="button" value="3" class="btn btn-light waves-effect">3</button>
-
-                                <button type="button" value="0" class="btn btn-light waves-effect">0</button>
-                                <button type="button" class="decimal function btn btn-secondary" value=".">.</button>
-                                <button type="button" class="all-clear function btn btn-danger btn-sm" value="all-clear">AC</button>
-
-                                <button type="button" class="equal-sign operator btn btn-success" value="=">=</button>
-
                             </div>
                         </div>
                     </div>
