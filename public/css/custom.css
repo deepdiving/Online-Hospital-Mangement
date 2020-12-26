@@ -1,0 +1,98 @@
+/* text-themecolor */
+/* -- Custom Top Menu  */
+
+/* End Top Menu */
+
+.b-t-2{
+    border-top: 2px solid;
+}
+.b-r-2{
+    border-right: 2px solid;
+}
+.sidebar-nav ul li ul {
+    padding-left: 15px;
+    padding-top: 0px;
+}
+.user-profile .profile-img img {
+    width: 50px;
+    border-radius: 50%;
+    height: 50px;
+}
+.topbar .profile-pic {
+    width: 30px;
+    border-radius: 50%;
+    height: 30px;
+}
+
+.btn.focus,
+.btn:focus {
+    /* outline: 0; */
+    box-shadow: none;
+}
+
+::placeholder {
+    color: #99abb4 !important;
+    font-size: 13px;
+}
+
+.form-control {
+    color: #000000;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    color: #000 !important;
+    background: #ddd !important;
+}
+.text-black{
+    color: #000;
+}
+
+.input-group-prepend,
+.input-group-append {
+    margin-top: 6px;
+}
+
+
+
+.search .form-group{
+    margin-right: 20px;
+}
+.search .form-control{
+    width: 200px !important;
+    height: 38px;
+}
+
+.top-menu-item{
+    color: #798699
+}
+
+.top-menu-a{
+    font-size: 15px !important;
+    white-space: nowrap;
+    padding: 0px 16px;
+}
+.top-menu{
+    padding: 0px;
+    border-radius: 0px;
+    margin-top: 10px;
+    background: #272c33;
+}
+
+
+.form-title span{
+    background: #fff;
+    padding-right: 10px;
+}
+.form-title:after {
+    content: "";
+    display: block;
+    margin-top: -15px;
+}
+
+
+
+/* #dataTableNoPaging td, #dataTableNoPaging th {
+    border-color: #272c33;
+} */
+

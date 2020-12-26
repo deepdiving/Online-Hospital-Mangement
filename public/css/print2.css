@@ -1,0 +1,16 @@
+body {
+    font-family: "Poppins", sans-serif;
+}
+.font-weight-bold{
+    font-weight: bold;
+}
+.text-center {
+    text-align: center!important;
+} */
+.text-right {
+    text-align: right!important;
+}
+.table td{ border: 1px solid #f3f1f1; width:100% !important; }
+.wd60percent{ width: 60% !important;}
+.wd15percent{ width: 15% !important;}
+.wd25percent{ width: 25% !important;}

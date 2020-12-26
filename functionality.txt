@@ -1,0 +1,26 @@
+User management base on permisison & role
+Live php chat
+Create group based custom role
+Permission based user
+Dynamic menu creation
+Create Users / mange users under a role
+Interactive Dashboard
+Powerfull & User friendly Admin Panel
+Client side & Server side form validation
+Ulimited number of permission and role
+Fully controllable form admin panel
+Manage permission and role from admin panel
+Secure user registration & login
+Authenticaion Throttling
+Login with Facebook.
+Login With Google Plus.
+Login With Twitter.
+Login With Linkin.
+Login With Github.
+Mobile compatible.
+Multi language support.
+Multi Theme option.
+Beautiful Dashboard.
+Beautiful track log system / Users Activity log.
+Php / SMTP Mail support.
+Made by Laravel, Vue JS bootstrap

@@ -1,0 +1,90 @@
+
+
+https://doersguild.github.io/jQuery.print/
+http://jsfiddle.net/mturjak/2wk6Q/1949/
+
+php artisan config:clear 
+php artisan cache:clear
+php artisan route:clear
+php artisan view:clear 
+
+"barryvdh/laravel-debugbar": "^3.2",
+
+$siteInfo = (object)session()->get('settings')[0];
+
+php artisan db:seed --class=PermissionsTableSeeder
+factory(App\Models\Pharma\Product::class,10)->create();
+$product = $product->load('unit', 'category','type','manufacturer');
+
+-------------------- Auth constuct function:
+    public function __construct(){
+        $this->middleware('authorized');
+    }
+
+-------------------- Checking Access:
+-- Closer function (method):
+        if (!Sentinel::hasAccess('permission_slug')) {  Session::flash('warning','Permission Denied');return redirect()->back();}
+-- Checking on blade templete:
+        @if(Sentinel::hasAccess('permission_slug'))
+            //Blade code
+        @endif
+
+-------------------- Saving Activities:
+    Pharma::activities("action", "module", "note");
+
+-------------------- Flashing Message:
+    flash("Your Messages")->success();
+    flash("Your Messages")->error();
+    flash("Your Messages")->danger();
+
+-------------------- Getting Unique Slug:
+    Pharma::getUniqueSlug($model, 'string');
+
+-------------------- Shorten text/limit:
+    Pharma::limit_text($text, $limit);
+    
+-------------------- Sending Notifaction
+    Pharma::sendNotification([1],'content','/url');
+
+-------------------- Big Transection
+DB::beginTransaction();
+    try{   
+        DB::commit();
+    }catch(\Exception $e){
+        DB::rollback();
+        Session::flash('warning', 'sale NOT Succeed!');
+        return redirect('sale');
+    }
+
+
+
+    
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
