@@ -62,13 +62,13 @@
                                 @if(count($bill->labReports) > 0)
                                         <tr>
                                             <td>{{ sprintf("%02s",++$i) }}</td>
-                                            <td><a  href="{{url('lab/make/report/'.$bill->invoice)}}">#{{ $bill->invoice }}</a> </td>
+                                            <td>#{{ $bill->invoice }}</td>
                                             <td>{{ $bill->patient->patient_name }}</td>  
                                             <td> {{date('d M',strtotime($bill->delivary_date)) }} {{ date('g:i A', strtotime($bill->delivary_time)) }} </td> 
                                             <td>
                                                 @foreach($bill->labReports as $report)
                                                     @if($report->status == 'Active')
-                                                        <a target="_blank" class="btn btn-primary btn-sm" href="{{url('laboratory/invoice/a4/'.$report->invoice)}}">#{{$report->invoice}}</a>
+                                                        <a class="btn btn-primary btn-sm" href="{{url('lab/invoice/'.$report->invoice)}}">#{{$report->invoice}}</a>
                                                     @endif
                                                 @endforeach
                                             </td>

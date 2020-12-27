@@ -86,7 +86,7 @@ class DatabaseSeeder extends Seeder
             PreMedicineTypesTableSeeder::class,
             PreMedicinesTableSeeder::class,
             PreRoutinesTableSeeder::class,
-            DocAppointmentTableSeeder::class,
+            // DocAppointmentTableSeeder::class,
 
             HrmDepartmentTableSeeder::class,
             HrmPositionTableSeeder::class,

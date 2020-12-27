@@ -63,8 +63,8 @@
                         <li><a href="{{url('hospital/operation/voided')}}" class="{{ request()->is('hospital/operation/voided') ? 'active' : '' }}"><i class="mdi mdi-delete-forever" style="font-size:16px"></i> Voided</a></li>
                     </ul>
                 </li>
-                <li><a href="{{url('hospital/beds/bed/status')}}" class="{{ request()->is('hospital/beds/bed/status') ? 'active' : '' }}"><i class="mdi mdi-map-marker-radius" style="font-size:16px"></i> Bed Map</a></li>
-                <li><a href="{{url('reports/user-wise-transaction?start='.date('Y-m-d').'&end='.date('Y-m-d').'&user='.Sentinel::getUser()->id)}}" class="{{ request()->is('reports/user-wise-transaction') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> My Transaction</a></li>
+                <li><a href="{{url('hospital/beds/bed/status')}}" class="{{ request()->is('hospital/beds/bed/status') ? 'active' : '' }}"><i class="mdi mdi-map-marker-radius" style="font-size:16px"></i><span class="hide-menu"> Bed Map</span></a></li>
+                <li><a href="{{url('reports/user-wise-transaction?start='.date('Y-m-d').'&end='.date('Y-m-d').'&user='.Sentinel::getUser()->id)}}" class="{{ request()->is('reports/user-wise-transaction') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> <span class="hide-menu"> My Transaction </span></a></li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

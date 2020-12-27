@@ -117,7 +117,7 @@
     <div class="col-lg-6 col-md-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title text-themecolor">Upcoming Test List</h4>
+                <h4 class="card-title text-themecolor">Test List</h4>
                 <h6 class="card-subtitle">Last 10 upcomming test</h6>
                 <div class="table-responsive">
                     <table class="table stylish-table">

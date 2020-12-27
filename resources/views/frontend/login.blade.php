@@ -128,7 +128,14 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="col-md-4  p-2">
+                        <div class="elements bg-custom text-center" id="laboratory">
+                            <div class="userArea pt-2">
+                                <i class="mdi mdi-needle font-40"></i>
+                                <p class="text-center bg-text">Laboratory</p>
+                            </div>
+                        </div>
+                    </div>
                     
                     {{-- <div class="col-md-4  p-2">
                         <div class="elements bg-custom text-center" id="hospital">
