@@ -136,7 +136,22 @@
                             </div>
                         </div>
                     </div>
-                    
+                    {{-- <div class="col-md-4  p-2">
+                        <div class="elements bg-custom text-center" id="pharmacy">
+                            <div class="userArea pt-2">
+                                <i class="mdi mdi-pill font-40"></i>
+                                <p class="text-center bg-text">Pharmacy</p>
+                            </div>
+                        </div>
+                    </div> --}}
+                    <div class="col-md-4  p-2">
+                        <div class="elements bg-custom text-center" id="doctor">
+                            <div class="userArea pt-2">
+                                <i class="fa fa-user-md font-44 mb-3"></i>
+                                <p class="text-center bg-text">Doctors</p>
+                            </div>
+                        </div>
+                    </div>
                     {{-- <div class="col-md-4  p-2">
                         <div class="elements bg-custom text-center" id="hospital">
                             <div class="userArea pt-2">

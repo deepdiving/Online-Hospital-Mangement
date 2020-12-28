@@ -63,6 +63,14 @@
                         <li><a href="{{url('hospital/operation/voided')}}" class="{{ request()->is('hospital/operation/voided') ? 'active' : '' }}"><i class="mdi mdi-delete-forever" style="font-size:16px"></i> Voided</a></li>
                     </ul>
                 </li>
+                <li class="{{ request()->is('sale/*') ? 'active' : '' }}">
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('sale*')?'true':'false'}}"><i class="mdi mdi-scale-balance"></i><span class="hide-menu">Medicine Sales</span></a>
+                    <ul aria-expanded="{{ Request::is('sale*')?'true':'false'}}" class="collapse {{ Request::is('sale*')?'in':''}}">
+                        <li><a href="{{url('sale/create')}}" class="{{ request()->is('/sale/*') ? 'active' : '' }}"><i class="mdi mdi-scale"></i> New Sale</a></li>
+                        <li><a href="{{url('sale')}}" class="{{ request()->is('sale') || request()->is('sale/invoice/*') ? 'active' : '' }}"><i class="mdi mdi-chart-timeline"></i> Sales List</a></li>
+                        <li><a href="{{url('sale/voided')}}" class="{{ request()->is('/sale/voided/*') ? 'active' : '' }}"><i class="mdi mdi-delete-variant"></i> Voided List</a></li>
+                    </ul>
+                </li>
                 <li><a href="{{url('hospital/beds/bed/status')}}" class="{{ request()->is('hospital/beds/bed/status') ? 'active' : '' }}"><i class="mdi mdi-map-marker-radius" style="font-size:16px"></i><span class="hide-menu"> Bed Map</span></a></li>
                 <li><a href="{{url('reports/user-wise-transaction?start='.date('Y-m-d').'&end='.date('Y-m-d').'&user='.Sentinel::getUser()->id)}}" class="{{ request()->is('reports/user-wise-transaction') ? 'active' : '' }}"><i class="mdi mdi-content-duplicate"></i> <span class="hide-menu"> My Transaction </span></a></li>
             </ul>

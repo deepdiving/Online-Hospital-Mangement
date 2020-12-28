@@ -157,6 +157,13 @@
                 <li class="{{ request()->is('diagnostic/*') ? 'active' : '' }}">
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('diagnostic*')?'true':'false'}}"><i class="fa fa-medkit" style="font-size:17px"></i><span class="hide-menu"> Diagnostic</span></a>
                      <ul>
+                        <li class="{{ request()->is('doctor/*') ? 'active' : '' }}">
+                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('doctor/*')?'true':'false'}}"><i class="fa fa-user-md"></i><span class="hide-menu"> Doctor</span></a>
+                            <ul aria-expanded="{{ Request::is('schedule/*')?'true':'false'}}" class="collapse {{ Request::is('schedule/*')?'in':''}}">
+                                <li><a href="{{url('doctor')}}" class="{{ request()->is('doctor/') ? 'active' : '' }}"><i class="fa fa-stethoscope"></i> Doctors</a></li>
+                                <li><a href="{{url('doctor/create')}}" class="{{ request()->is('doctor/create/*') ? 'active' : '' }}"><i class="fa fa-user-md"></i> New Doctor</a></li> 
+                            </ul>
+                        </li> 
                         <li class="{{ request()->is('appointment/') ? 'active' : '' }}">
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('appointment/')?'true':'false'}}"><i class="mdi mdi-calendar-blank"></i><span class="hide-menu"> Appointment</span></a>
                             <ul aria-expanded="{{ Request::is('appointment/*')?'true':'false'}}" class="collapse {{ Request::is('appointment/*')?'in':''}}">

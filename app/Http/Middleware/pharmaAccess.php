@@ -16,7 +16,7 @@ class pharmaAccess
      */
     public function handle($request, Closure $next)
     {
-        if(Sentinel::getUser()->inRole('pharmacy') || Sentinel::getUser()->inRole('admin')){
+        if(Sentinel::getUser()->inRole('pharmacy') || Sentinel::getUser()->inRole('admin') || Sentinel::getUser()->inRole('manager') || Sentinel::getUser()->inRole('receptionist')){
             return $next($request);
         }
         Session::flash('success', 'Sorry You Are Not Authorized!');

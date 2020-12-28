@@ -17,7 +17,7 @@ class DoctorsTableSeeder extends Seeder
                 'full_name'     => 'Gopal Singh Dhanik',
                 'department_id' => '1',
                 'email'         => 'abc@gmail.com',
-                'own_user_id'   => '6',
+                'own_user_id'   => '4',
                 'picture'       => '',
                 'gender'        => 'Male',
                 'blood_group'   => 'A+',

@@ -40,7 +40,7 @@ class CreateSiteSettingsTable extends Migration
             $table->String('batch_prefix')->default('BATCH');
             $table->float('sale_tax')->default('0.00');
             $table->float('purchase_tax')->default('0.00');
-            $table->enum('voucher_type', ['A4', 'POS'])->default('A4');
+            $table->enum('voucher_type', ['A4', 'POS'])->default('POS');
             $table->String('prefix_diagnostic_bill')->default('DIA');
             $table->String('prefix_hms_admission')->default('HMS');
             $table->String('prefix_asset')->default('hms/assets/');

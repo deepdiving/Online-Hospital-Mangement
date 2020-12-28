@@ -25,7 +25,7 @@ class CreateTransationsTable extends Migration
             $table->enum('vendor', ['Patient', 'Manufacturer', 'Expense' ,'Referral','Doctor'])->default('Patient');
             $table->enum('transaction_type', ['Payment', 'Received','Collection'])->default('Received');
             $table->enum('status', ['Active', 'Void'])->default('Active');
-            $table->enum('module', ['Pharmacy', 'Diagnostic','Hospital'])->default('Pharmacy');
+            $table->enum('module', ['Pharmacy', 'Diagnostic','Hospital','Receptionist'])->default('Pharmacy');
             $table->enum('sub_module', ['Hospital-Admission', 'Hospital-Emergency','Hospital-Operation','Hospital-BedChargeCollection','Diagnostic-Appointment'])->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();

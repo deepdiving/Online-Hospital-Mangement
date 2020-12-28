@@ -23,18 +23,18 @@ class UserTableSeeder extends Seeder
         $user = \Sentinel::registerAndActivate($users);
         $role = \Sentinel::findRoleBySlug('admin');
         $role->users()->attach($user->id);
-        // $users = [
-        //         'name'          => 'Pharmacy',
-        //         'first_name'    => 'Pharma Manager',
-        //         'last_name'     => 'AndIt',
-        //         'email'         => 'pharma@andit.com',
-        //         'password'      => '123456', //123456
-        //         'created_at'    => now(),
-        //         'updated_at'    => now()
-        // ];
-        // $user = \Sentinel::registerAndActivate($users);
-        // $role = \Sentinel::findRoleBySlug('pharmacy');
-        // $role->users()->attach($user->id);
+        $users = [
+                'name'          => 'Pharmacy',
+                'first_name'    => 'Pharma Manager',
+                'last_name'     => 'AndIt',
+                'email'         => 'pharma@andit.com',
+                'password'      => '123456', //123456
+                'created_at'    => now(),
+                'updated_at'    => now()
+        ];
+        $user = \Sentinel::registerAndActivate($users);
+        $role = \Sentinel::findRoleBySlug('pharmacy');
+        $role->users()->attach($user->id);
 
         $users = [
                 'name'          => 'Laboratory',
@@ -75,18 +75,18 @@ class UserTableSeeder extends Seeder
         // $role = \Sentinel::findRoleBySlug('hospital');
         // $role->users()->attach($user->id);
         
-        // $users = [
-        //         'name'          => 'Gopal Singh Dhanik',
-        //         'first_name'    => 'Gopal',
-        //         'last_name'     => 'Singh Dhanik',
-        //         'email'         => 'drgopal@andit.com',
-        //         'password'      => '123456', //123456
-        //         'created_at'    => now(),
-        //         'updated_at'    => now()
-        // ];
-        // $user = \Sentinel::registerAndActivate($users);
-        // $role = \Sentinel::findRoleBySlug('doctor');
-        // $role->users()->attach($user->id);
+        $users = [
+                'name'          => 'Gopal Singh Dhanik',
+                'first_name'    => 'Gopal',
+                'last_name'     => 'Singh Dhanik',
+                'email'         => 'drgopal@andit.com',
+                'password'      => '123456', //123456
+                'created_at'    => now(),
+                'updated_at'    => now()
+        ];
+        $user = \Sentinel::registerAndActivate($users);
+        $role = \Sentinel::findRoleBySlug('doctor');
+        $role->users()->attach($user->id);
 
         // $users = [
         //         'name'          => 'Vivek Saxena',

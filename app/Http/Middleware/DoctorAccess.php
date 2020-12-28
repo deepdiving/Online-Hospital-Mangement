@@ -16,7 +16,7 @@ class DoctorAccess
      */
     public function handle($request, Closure $next)
     {
-        if(Sentinel::getUser()->inRole('doctor') || Sentinel::getUser()->inRole('diagnostic') || Sentinel::getUser()->inRole('admin')){
+        if(Sentinel::getUser()->inRole('doctor') || Sentinel::getUser()->inRole('diagnostic') || Sentinel::getUser()->inRole('admin') || Sentinel::getUser()->inRole('manager')){
             return $next($request);
         }
         Session::flash('success', 'Sorry You Are Not Authorized!');

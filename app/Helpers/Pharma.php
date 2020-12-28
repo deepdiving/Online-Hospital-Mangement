@@ -53,7 +53,9 @@ class Pharma
         }elseif(Sentinel::getUser()->inRole('hospital')){
             return 'Hospital';
         }elseif(Sentinel::getUser()->inRole('doctor')){
-            return 'Doctor';
+            return 'Doctor';    
+        }elseif(Sentinel::getUser()->inRole('receptionist')){
+            return 'Receptionist';
         }    
     }
     public function getUserName($id)
