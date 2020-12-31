@@ -15,7 +15,7 @@
                 <h4 class="card-title">{{ trans_choice('messages.type',1) }}</h4>
                 <h6 class="card-subtitle">{{ __('messages.new_product') }}</h6>
                 <hr class="hr-borderd">
-                <form class="form-material m-t-40 form" action="{{ route('type.store') }}" method="post">
+                <form class="form-material m-t-40 form" action="{{ route('product_type.store') }}" method="post">
                     @csrf
                     <div class="form-group row {{ $errors->has('name') ? ' has-danger' : '' }}">
                         <label for="name" class="col-sm-2 text-right control-label col-form-label">{{  __('messages.pro_type_name')}}<sup class="text-danger font-bold">*</sup> :</label>

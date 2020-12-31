@@ -39,7 +39,7 @@ tbody.borderhade tr {
             <div class="card-body">
                 <button class="btn btn-success" onclick="invoiceprint()">Print</button>
                 <div id="printArea">
-                    <h4 class="text-center font-weight-bold">Diagnostic {{session()->get('settings')[0]['site_name']}}</h4>
+                    <h4 class="text-center font-weight-bold"> {{session()->get('settings')[0]['site_name']}}</h4>
                     <p class="text-center">{{session()->get('settings')[0]['address']}} <br> {{session()->get('settings')[0]['phone_number']}}</p>
                     <p class="d-inline-block">
                         #{{ $invoicePrint->patient->slug }} <br>
@@ -123,7 +123,7 @@ tbody.borderhade tr {
                     <hr>
 
 
-                    <h4 class="text-center font-weight-bold">Diagnostic {{session()->get('settings')[0]['site_name']}}</h4>
+                    <h4 class="text-center font-weight-bold"> {{session()->get('settings')[0]['site_name']}}</h4>
                     <p class="text-center">{{session()->get('settings')[0]['address']}} <br> {{session()->get('settings')[0]['phone_number']}}</p>
                     <p class="d-inline-block ">
                         #{{ $invoicePrint->patient->slug }} <br>
@@ -203,7 +203,7 @@ tbody.borderhade tr {
                         </div> 
                     </div>        
                     <hr> 
-                    <h4 class="text-center font-weight-bold">Diagnostic {{session()->get('settings')[0]['site_name']}}</h4>
+                    <h4 class="text-center font-weight-bold"> {{session()->get('settings')[0]['site_name']}}</h4>
                     <p class="text-center">{{session()->get('settings')[0]['address']}} <br> {{session()->get('settings')[0]['phone_number']}}</p>
                     <p class="d-inline-block">
                         #{{ $invoicePrint->patient->slug }} <br>

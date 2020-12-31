@@ -8,7 +8,7 @@
 
 Route::group(['prefix' => 'products'], function () {
     Route::resource('category', 'Pharma\CategoryController');
-    Route::resource('type', 'Pharma\ProductTypeController');
+    Route::resource('product_type', 'Pharma\ProductTypeController');
     Route::resource('unit', 'Pharma\UnitController');
     Route::resource('tax', 'Pharma\ProductTaxController');
     //products

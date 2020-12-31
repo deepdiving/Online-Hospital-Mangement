@@ -370,10 +370,10 @@ class HmsAdmissionsController extends Controller
         $stayDay = Pharma::two_date_diff($admission->date,date('Y-m-d'));
         $refarences = Referral::all();
         
-        $beds = HmsBed::where('patient',0)->get();
+        // $beds = HmsBed::where('patient',0)->get();
         $servicecategory = HmsServiceCategory::all();
         $service = HmsService::orderBy('price','DESC')->get();
-        return view('hospital.admission.discharge',compact('admission','patient','given_service','DueOperation','DueEmergency','DueDiagnosticBill','DuePharmacy','stayDay','refarences','servicecategory','service','beds'));
+        return view('hospital.admission.discharge',compact('admission','patient','given_service','DueOperation','DueEmergency','DueDiagnosticBill','DuePharmacy','stayDay','refarences','servicecategory','service'));
     }
     public function postdischarge($slug,Request $request) {
         // dd($request->all());
@@ -407,6 +407,8 @@ class HmsAdmissionsController extends Controller
             'patient_id'    => $admission->patient_id,
         ];
         HmsGivenService::create($data);
+
+        HmsBed::where('patient',$admission->patient_id)->update(['patient'=>0]);
 
         if($request->trans_id != 0 ){
             $trans = New Transation;

@@ -18,7 +18,7 @@
                  {{-- <img src="{{ asset('material') }}/assets/images/logo-text.png" alt="homepage" class="dark-logo" /> --}}
                  <!-- Light Logo text -->
                  {{-- <img src="{{ asset('material') }}/assets/images/logo-light-text.png" class="light-logo" alt="homepage" /> --}}
-                 <b class="light-logo">{{session()->get('settings')[0]['site_name']}}-Pharmecy</b>
+                 <b class="light-logo">{{session()->get('settings')[0]['site_name']}}</b>
                 </span> </a>
         </div>
         <!-- ============================================================== -->

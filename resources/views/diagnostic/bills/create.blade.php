@@ -121,14 +121,14 @@
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-10">
+                        <div class="form-group col-md-12">
                             <select class="form-control" required name="ref_id" id="ref_id">
                                 <?php echo Pharma::GetOptions($refarences,'name',1)?>
                             </select>
                         </div>
-                        <div class="form-group col-md-2">
+                        {{-- <div class="form-group col-md-2">
                             <span id="newRefaral" class="btn bg-theme text-white"><i class="fa fa-plus-square"></i></span>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <div id="new_refaral" style="display:none">

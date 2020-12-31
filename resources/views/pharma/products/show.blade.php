@@ -169,7 +169,7 @@
                         <tr>
                             <td>{{date('M d, Y',strtotime($item->sale->date))}}</td>
                             <td><a href="#">{{$item->sale->invoice}}</a></td>
-                            <td>{{$item->sale->customer->customer_name}}</td>
+                            <td>{{$item->sale->patient->patient_name}}</td>
                             <td class="text-right">{{$item->current_stock}} <small>{{$product->unit->unit_name}}</small>
                             </td>
                             <td class="text-right">{{$item->sale_qty}} <small>{{$product->unit->unit_name}}</small></td>

@@ -44,7 +44,7 @@ tbody.borderhade tr {
            <div class="card">
             <div class="card-body"> 
                 <button id="printInvoice" class="btn btn-info print-window"><i class="fa fa-print"></i> {{ __('messages.print') }}</button>
-                   <h4 class="text-center font-weight-bold">Diagnostic {{session()->get('settings')[0]['site_name']}}</h4>
+                   <h4 class="text-center font-weight-bold"> {{session()->get('settings')[0]['site_name']}}</h4>
                     <p class="text-center">{{session()->get('settings')[0]['address']}} <br> {{session()->get('settings')[0]['phone_number']}}</p>
                     <p class="d-inline-block">
                         {{$purchase->manufacturer->manufacturer_name}} <br> 

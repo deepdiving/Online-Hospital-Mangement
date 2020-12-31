@@ -47,21 +47,21 @@ class ProductTypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,ProductType $type)
+    public function store(Request $request,ProductType $product_type)
     {
         if (!Sentinel::hasAccess('type-create')) { Session::flash('error','Permission Denied!');return redirect()->back();}
         $this->validateForm($request);
-        $type->create($request->merge([
+        $product_type->create($request->merge([
             'type_name'       => $request->type_name,
             'description'   => $request->description,
-            'slug'          => Pharma::getUniqueSlug($type,$request->type_name),
+            'slug'          => Pharma::getUniqueSlug($product_type,$request->type_name),
             'user_id'       => Sentinel::getUser()->id,
             'created_at'    => now(),
         ])->all());
 
         Session::flash('success','type Added Succeed!');
         Pharma::activities("Added", "type", "Added a New type");
-        return redirect('products/type');
+        return redirect('products/product_type');
     }
 
     /**
@@ -70,11 +70,11 @@ class ProductTypeController extends Controller
      * @param  \App\Models\Pharma\ProductType  $productType
      * @return \Illuminate\Http\Response
      */
-    public function show(ProductType $type)
+    public function show(ProductType $product_type)
     {
         if (!Sentinel::hasAccess('type-show')) { Session::flash('error','Permission Denied!');return redirect()->back();}
-        Pharma::ownItems($type);
-        return view('pharma.types.show', compact('type'));
+        Pharma::ownItems($product_type);
+        return view('pharma.types.show', compact('product_type'));
     }
 
     /**
@@ -83,11 +83,11 @@ class ProductTypeController extends Controller
      * @param  \App\Models\Pharma\ProductType  $productType
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProductType $type)
+    public function edit(ProductType $product_type)
     {
         if (!Sentinel::hasAccess('type-edit')) { Session::flash('error','Permission Denied!');return redirect()->back();}
-        Pharma::ownItems($type);
-        return view('pharma.types.edit', compact('type'));
+        Pharma::ownItems($product_type);
+        return view('pharma.types.edit', compact('product_type'));
     }
 
     /**
@@ -97,20 +97,20 @@ class ProductTypeController extends Controller
      * @param  \App\Models\Pharma\ProductType  $productType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductType $type)
+    public function update(Request $request, ProductType $product_type)
     {
         if (!Sentinel::hasAccess('type-edit')) { Session::flash('error','Permission Denied!');return redirect()->back();}
         $this->validateForm($request);
-        $type->update($request->merge([
+        $product_type->update($request->merge([
             'type_name'       => $request->type_name,
             'description'   => $request->description,
-            'slug'          => Pharma::getUniqueSlug($type,$request->type_name),
+            'slug'          => Pharma::getUniqueSlug($product_type,$request->type_name),
             'updated_at'    => now(),
         ])->all());
 
         Session::flash('success','type Updated Succeed!');
         Pharma::activities("Update", "type", "Updated type");
-        return redirect('products/type');
+        return redirect('products/product_type');
     }
 
     /**
@@ -119,13 +119,13 @@ class ProductTypeController extends Controller
      * @param  \App\Models\Pharma\ProductType  $productType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductType $type)
+    public function destroy(ProductType $product_type)
     {
         if (!Sentinel::hasAccess('type-destroy')) { Session::flash('error','Permission Denied!');return redirect()->back();}
-        $type->delete();
+        $product_type->delete();
         Session::flash('success','type Deleted Succeed!');
         Pharma::activities("Deleted", "type", "Deleted type");
-        return redirect('products/type');
+        return redirect('products/product_type');
     }
 
     private function validateForm($request){

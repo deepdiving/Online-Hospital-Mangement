@@ -14,7 +14,7 @@
                     <h4 class="card-title d-inline">{{ __('messages.prod_type_list') }}</h4>
                     <h6 class="card-subtitle d-inline">{{ __('messages.all_type_list') }}..</h6>
                     @if(Sentinel::hasAccess('type-create'))
-                        <a class="btn float-right bg-theme text-light" href="{{route('type.create')}}">{{ __('messages.new_prod_type') }}e</a>
+                        <a class="btn float-right bg-theme text-light" href="{{route('product_type.create')}}">{{ __('messages.new_prod_type') }}e</a>
                     @endif
                     <hr class="hr-borderd">
                     <div class="col-lg-12">   
@@ -45,13 +45,13 @@
                                             @if(Sentinel::hasAccess('type-show') || Sentinel::hasAccess('type-edit') || Sentinel::hasAccess('type-destroy'))
                                                 <td style="display: flex; justify-content: space-evenly;">
                                                     @if(Sentinel::hasAccess('type-show'))
-                                                        <a class="btn waves-effect waves-light btn-xs btn-info" href="{{url('products/type/'.$type->slug)}}"><i class="fa fa-eye"></i></a>
+                                                        <a class="btn waves-effect waves-light btn-xs btn-info" href="{{url('products/product_type/'.$type->slug)}}"><i class="fa fa-eye"></i></a>
                                                     @endif
                                                     @if(Sentinel::hasAccess('type-edit'))
-                                                        <a class="btn waves-effect waves-light text-light btn-xs btn-warning" href="{{url('products/type/'.$type->slug.'/edit')}}"><i class="fa fa-edit"></i></a>
+                                                        <a class="btn waves-effect waves-light text-light btn-xs btn-warning" href="{{url('products/product_type/'.$type->slug.'/edit')}}"><i class="fa fa-edit"></i></a>
                                                     @endif
                                                     @if(Sentinel::hasAccess('type-destroy'))
-                                                        <form action="{{url('products/type/'.$type->slug)}}" method="post" style="margin-top:-2px" id="deleteButton{{$type->id}}">
+                                                        <form action="{{url('products/product_type/'.$type->slug)}}" method="post" style="margin-top:-2px" id="deleteButton{{$type->id}}">
                                                             @csrf
                                                             @method('delete')
                                                             <button type="submit" class="btn waves-effect waves-light btn-xs btn-danger" onclick="sweetalertDelete({{$type->id}})"><i class="fa fa-trash-o"></i></button>

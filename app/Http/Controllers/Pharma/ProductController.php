@@ -106,7 +106,7 @@ class ProductController extends Controller
         $product = $product->load('unit', 'category', 'type', 'manufacturer');
         $batches = Batch::where('product_id', $product->id)->where('status', 'Active')->get();
         $purchaseItems = PurchaseItem::where('product_id', $product->id)->where('status', 'Active')->get();
-        $saleItems = SaleItems::where('product_id', $product->id)->where('status', 'Active')->get();
+        $saleItems = SaleItems::with('sale.patient')->where('product_id', $product->id)->where('status', 'Active')->get();
         // dd($saleItems);
         return view('pharma.products.show', compact('product', 'batches', 'purchaseItems', 'saleItems'));
     }

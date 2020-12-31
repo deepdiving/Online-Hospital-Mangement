@@ -44,7 +44,7 @@ tbody.borderhade tr {
                     <div id="printArea">
                         <div class="row">
                             <div class="col-md-6 b-r">
-                                <h4 class="text-center font-weight-bold">Hospital {{session()->get('settings')[0]['site_name']}}</h4>
+                                <h4 class="text-center font-weight-bold">{{session()->get('settings')[0]['site_name']}}</h4>
                                 <p class="text-center">{{session()->get('settings')[0]['address']}} <br> {{session()->get('settings')[0]['phone_number']}}</p>
                                 <p class="d-inline-block">
                                   ID: #{{ $invoicePrint->patient->slug }} <br>

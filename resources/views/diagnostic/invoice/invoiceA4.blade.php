@@ -42,7 +42,7 @@ tbody.borderhade tr {
                     <div id="printArea">
                         <div class="row">
                             <div class="col-md-4 b-r">
-                                <h4 class="text-center font-weight-bold">Diagnostic {{session()->get('settings')[0]['site_name']}}</h4>
+                                <h4 class="text-center font-weight-bold"> {{session()->get('settings')[0]['site_name']}}</h4>
                                 <p class="text-center">{{session()->get('settings')[0]['address']}} <br> {{session()->get('settings')[0]['phone_number']}}</p>
                                 <p class="d-inline-block">
                                     #{{ $invoicePrint->patient->slug }} <br>
@@ -124,7 +124,7 @@ tbody.borderhade tr {
                             </div>
 
                             <div class="col-md-4 b-r">
-                                <h4 class="text-center font-weight-bold">Diagnostic {{session()->get('settings')[0]['site_name']}}</h4>
+                                <h4 class="text-center font-weight-bold"> {{session()->get('settings')[0]['site_name']}}</h4>
                                     <p class="text-center">{{session()->get('settings')[0]['address']}} <br> {{session()->get('settings')[0]['phone_number']}}</p>
                                     <p class="d-inline-block">
                                         #{{ $invoicePrint->patient->slug }} <br>
@@ -207,7 +207,7 @@ tbody.borderhade tr {
                             </div>
 
                             <div class="col-md-4">
-                                <h4 class="text-center font-weight-bold">Diagnostic {{session()->get('settings')[0]['site_name']}}</h4>
+                                <h4 class="text-center font-weight-bold"> {{session()->get('settings')[0]['site_name']}}</h4>
                                 <p class="text-center">{{session()->get('settings')[0]['address']}} <br> {{session()->get('settings')[0]['phone_number']}}</p>
                                 <p class="d-inline-block">
                                     #{{ $invoicePrint->patient->slug }} <br>

@@ -48,8 +48,8 @@ class HmsBedsController extends Controller
     public function store(Request $request,HmsBed $bed)
     {
       $request->validate([
-        'bed_no' => 'required|unique:hms_beds|max:200',
-        'price' => 'required|numeric|min:1|max:200',
+        'bed_no' => 'required|unique:hms_beds|max:20000',
+        'price' => 'required|numeric|min:1|max:20000',
       ]);
 
         $bed_no = Pharma::getUniqueSlug($bed,$request->bed_no);
@@ -97,8 +97,8 @@ class HmsBedsController extends Controller
     public function update(Request $request, HmsBed $bed)
     {
         $request->validate([
-          'bed_no' => 'required|max:200',
-          'price' => 'required|numeric|min:1|max:200',
+          'bed_no' => 'required|max:20000',
+          'price' => 'required|numeric|min:1|max:20000',
         ]);
 
         $data = $request->only('price','slug','bed_no','status','bed_type_id','user_id');

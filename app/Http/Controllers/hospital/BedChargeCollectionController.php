@@ -92,16 +92,17 @@ class BedChargeCollectionController extends Controller
 
         Session::flash('success', 'Hospiral Bed Charge Collected');
         Pharma::activities("Collected", "Bed Charge", "Collected Bed Charge with ".$result['paid_amount']);
-        if(session()->get('settings')[0]['voucher_type'] == 'A4'){
+        return redirect()->back();
+        // if(session()->get('settings')[0]['voucher_type'] == 'A4'){
             
-            //A4 size print
-            return redirect()->back();
-             //return redirect('hospital/bedcharge/invoice/a4/' . $invoice);
-        }else if(session()->get('settings')[0]['voucher_type'] == 'POS'){
-           // echo 'done';
-        //pos size print
-             //return redirect('hospital/bedcharge/invoice/pos/'.$invoice);
-        }
+        //     //A4 size print
+        //     return redirect()->back();
+        //      //return redirect('hospital/bedcharge/invoice/a4/' . $invoice);
+        // }else if(session()->get('settings')[0]['voucher_type'] == 'POS'){
+        //    // echo 'done';
+        // //pos size print
+        //      //return redirect('hospital/bedcharge/invoice/pos/'.$invoice);
+        // }
     }
 
     private function addItems($cId,$request){

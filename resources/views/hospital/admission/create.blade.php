@@ -186,14 +186,14 @@ span.select2.select2-container.select2-container--default{
                         </div>        
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-10">
+                        <div class="form-group col-md-12">
                             <select class="form-control" required name="ref_id" id="ref_id">
                                 <?php echo Pharma::GetOptions($refarences,'name',1)?>
                             </select>
                         </div>
-                        <div class="form-group col-md-2">
+                        {{-- <div class="form-group col-md-2">
                             <span id="newRefaral" class="btn bg-theme text-white"><i class="fa fa-plus-square"></i></span>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <div id="new_refaral" style="display:none">
@@ -298,8 +298,8 @@ span.select2.select2-container.select2-container--default{
                                                 <td>{{$serviceAdmission->name}}</td>
                                                 <td class="text-right unit_price">{{$serviceAdmission->price}}</td>
                                                 <td align="center"><span class="btn btn-warning" onclick="removeCart(1)"><i class="mdi mdi-close-box-outline"></i></span>
-                                                    <input type="hiden" class="display_none" name="test_items[]" value="1">
-                                                    <input type="hiden" class="display_none" name="test_item_price[]" value="200">
+                                                    <input type="hiden" class="display_none" name="test_items[]" value="{{$serviceAdmission->id}}">
+                                                    <input type="hiden" class="display_none" name="test_item_price[]" value="{{$serviceAdmission->price}}">
                                                 </td>
                                             </tr>
                                         </tbody>
