@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::group(['prefix' => 'reports'], function () {
+    Route::get('admin-today','Api\ApiController@admin_today');
+    Route::get('user-wise-transaction','Api\ApiController@user_trans');
+    Route::get('cash-flow','Api\ApiController@cashFlow');
+});

@@ -581,7 +581,7 @@ class ReportController extends Controller{
         $data['doctor_payment']     = $docPayment->where('status','Active')->where('vendor','Doctor')->where('transaction_type','Payment')->sum('amount'); 
 
         //Expences Query
-        $data['expense']            = $expense->with('category')->select(DB::raw('sum(amount) as amount,expense_category_id'))->where('module','Diagnostic')->where('status','Active')->groupBy('expense_category_id')->get();
+        $data['expense']            = $expense->with('category')->select(DB::raw('sum(amount) as amount,expense_category_id'))->where('status','Active')->groupBy('expense_category_id')->get();
        
         
         return view('reports.adminToday',compact('data','siteInfo','totalDues','totalDueColection'));

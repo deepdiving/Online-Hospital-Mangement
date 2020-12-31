@@ -12,6 +12,8 @@
 */
 Route::get('blank/', function () {
     //some exprement
+    $exitCode = Artisan::call('storage:link', [] );
+    echo $exitCode; // 0 exit code for no errors.
 });
 
 include('core.php'); // Including Accounts, Expanse, User Management, Tax management ETC..

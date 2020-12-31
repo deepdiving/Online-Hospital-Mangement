@@ -68,6 +68,7 @@ class ExpenseController extends Controller
             'user_id'               => Sentinel::getUser()->id,
             'created_at'            => now(),
         ];
+        // dd($data);
         $expense->create($request->merge($data)->all());
         Pharma::makePayment($data);
         Session::flash('success','expense Added Succeed!');

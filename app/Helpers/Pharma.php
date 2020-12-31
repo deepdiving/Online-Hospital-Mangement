@@ -42,7 +42,7 @@ class Pharma
     }
 
     public function getModule(){
-        if(Sentinel::getUser()->inRole('admin')){
+        if(Sentinel::getUser()->inRole('admin')||Sentinel::getUser()->inRole('manager')){
             return 'HMS';
         }elseif(Sentinel::getUser()->inRole('pharmacy')){
             return 'Pharmacy';

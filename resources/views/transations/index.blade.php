@@ -39,11 +39,11 @@
                         <form action="" method="get" class="form-inline float-right search">
                             <div class="form-group">
                                 <label for="text">{{ __('messages.date_from')}}</label>
-                                <input type="text" name="start" value="{{$search['start']}}" class="form-control datepickers">
+                                <input type="text" name="start" value="{{$search['start']}}" class="form-control datepickerDB">
                             </div>
                             <div class="form-group">
                                 <label for="text">{{ __('messages.date_to')}}</label>
-                                <input type="text" name="end" value="{{$search['end']}}" class="form-control datepickers">
+                                <input type="text" name="end" value="{{$search['end']}}" class="form-control datepickerDB">
                             </div>
                             <div class="form-group">
                                 <label for="text">{{ __('messages.payment_type')}}</label>
