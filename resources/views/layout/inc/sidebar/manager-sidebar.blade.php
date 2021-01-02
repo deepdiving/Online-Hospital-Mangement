@@ -127,10 +127,10 @@
                         <li class="{{ request()->is('products/') ? 'active' : '' }}">
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('products*')?'true':'false'}}"><i class="fa fa-medkit" style="font-size:17px"></i><span class="hide-menu"> Manage Products</span></a>
                             <ul aria-expanded="{{ Request::is('products*')?'true':'false'}}" class="collapse {{ Request::is('products*')?'in':''}}">
-                                <li><a href="{{url('products/product')}}" class="{{ request()->is('products/product/*') ? 'active' : '' }}"><i class="mdi mdi-pill"></i> Manage Medicines</a></li>
-                                <li><a href="{{url('products/category')}}" class="{{ request()->is('products/category/*') ? 'active' : '' }}"><i class="mdi mdi-format-list-bulleted-type"></i> Manage Categories</a></li>
-                                <li><a href="{{url('products/type')}}" class="{{ request()->is('products/type/*') ? 'active' : '' }}"><i class="mdi mdi-format-list-bulleted-type"></i> Manage Types</a></li>
-                                <li><a href="{{url('products/unit')}}" class="{{ request()->is('products/unit/*') ? 'active' : '' }}"><i class="mdi mdi-google-circles-extended"></i> Manage Units</a></li>
+                                <li><a href="{{url('products/product')}}" class="{{ request()->is('products/product/*') ? 'active' : '' }}"><i class="mdi mdi-pill"></i> Medicines</a></li>
+                                <li><a href="{{url('products/category')}}" class="{{ request()->is('products/category/*') ? 'active' : '' }}"><i class="mdi mdi-format-list-bulleted-type"></i> Categories</a></li>
+                                <li><a href="{{url('products/product_type')}}" class="{{ request()->is('products/product_type/*') ? 'active' : '' }}"><i class="mdi mdi-format-list-bulleted-type"></i> Types</a></li>
+                                <li><a href="{{url('products/unit')}}" class="{{ request()->is('products/unit/*') ? 'active' : '' }}"><i class="mdi mdi-google-circles-extended"></i> Units</a></li>
                                 <li><a href="{{url('products/export-import')}}" class="{{ request()->is('products/export-import/*') ? 'active' : '' }}"><i class="mdi mdi-repeat"></i> Export/Import</a></li>
                             </ul>
                         </li>
@@ -157,13 +157,20 @@
                 <li class="{{ request()->is('diagnostic/*') ? 'active' : '' }}">
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('diagnostic*')?'true':'false'}}"><i class="fa fa-medkit" style="font-size:17px"></i><span class="hide-menu"> Diagnostic</span></a>
                      <ul>
+                     <li><a href="{{url('departments')}}" class="{{ request()->is('departments') ? 'active' : '' }}"><i class="mdi mdi-nutrition"></i> Departments</a></li>
+                        <!-- <li class="{{ request()->is('departments/*') ? 'active' : '' }}">
+                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('departments/*')?'true':'false'}}"><i class="mdi mdi-nutrition"></i><span class="hide-menu"> Departments</span></a>
+                            <ul aria-expanded="{{ Request::is('departments*')?'true':'false'}}" class="collapse {{ Request::is('vendor*')?'in':''}}">
+                                <li><a href="{{url('departments')}}" class="{{ request()->is('departments') ? 'active' : '' }}"><i class="mdi mdi-palette" style="font-size:16px"></i> Department List</a></li>
+                            </ul>
+                        </li> -->
                         <li class="{{ request()->is('doctor/*') ? 'active' : '' }}">
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('doctor/*')?'true':'false'}}"><i class="fa fa-user-md"></i><span class="hide-menu"> Doctor</span></a>
                             <ul aria-expanded="{{ Request::is('schedule/*')?'true':'false'}}" class="collapse {{ Request::is('schedule/*')?'in':''}}">
                                 <li><a href="{{url('doctor')}}" class="{{ request()->is('doctor/') ? 'active' : '' }}"><i class="fa fa-stethoscope"></i> Doctors</a></li>
                                 <li><a href="{{url('doctor/create')}}" class="{{ request()->is('doctor/create/*') ? 'active' : '' }}"><i class="fa fa-user-md"></i> New Doctor</a></li> 
                             </ul>
-                        </li> 
+                        </li>
                         <li class="{{ request()->is('appointment/') ? 'active' : '' }}">
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('appointment/')?'true':'false'}}"><i class="mdi mdi-calendar-blank"></i><span class="hide-menu"> Appointment</span></a>
                             <ul aria-expanded="{{ Request::is('appointment/*')?'true':'false'}}" class="collapse {{ Request::is('appointment/*')?'in':''}}">
@@ -172,7 +179,7 @@
                             </ul>
                         </li>
                         <li><a href="{{url('prescription/list')}}" class="{{ request()->is('prescription/list') || request()->is('prescription/invoice/*') ? 'active' : '' }}"><i class="mdi mdi-dns"></i> Prescriptions</a></li>
-                        <li><a href="{{url('lab/report/list')}}" class="{{ request()->is('lab/report/list/*') ? 'active' : '' }}"><i class="mdi mdi-home"></i><span class="hide-menu"> Reports</span></a></li>
+                        <li><a href="{{url('lab/report/list')}}" class="{{ request()->is('lab/report/list/*') ? 'active' : '' }}"><i class="mdi mdi-home"></i><span class="hide-menu">Test Reports</span></a></li>
                         <li class="{{ request()->is('schedule/') ? 'active' : '' }}">
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('schedule/')?'true':'false'}}"><i class="fa fa-clock-o"></i><span class="hide-menu"> Doctor schedule</span></a>
                             <ul aria-expanded="{{ Request::is('schedule/*')?'true':'false'}}" class="collapse {{ Request::is('schedule/*')?'in':''}}">
@@ -193,7 +200,7 @@
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('diagnostic/testlists/*')?'true':'false'}}"><i class="fa fa-stethoscope"></i><span class="hide-menu"> Manage Tests</span></a>
                             <ul aria-expanded="{{ Request::is('diagnostic/testlists/*')?'true':'false'}}" class="collapse {{ Request::is('diagnostic/testlists/*')?'in':''}}">
                                 <li><a href="{{ url('diagnostic/testlists') }}" class="{{ request()->is('diagnostic/testlists') ? 'active' : '' }}"><i class="fa fa-list"></i> Test List</a></li>
-                                {{-- <li><a href="{{ url('diagnostic/categories') }}" class="{{ request()->is('diagnostic/categories') ? 'active' : '' }}"><i class="fa fa-list-alt"></i> Test Category</a></li> --}}
+                                <li><a href="{{ url('diagnostic/categories') }}" class="{{ request()->is('diagnostic/categories') ? 'active' : '' }}"><i class="fa fa-list-alt"></i> Test Category</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -422,32 +429,6 @@
                     </li>
                 @endif
 
-                {{-- @if(Sentinel::hasAccess('expense-management'))
-                    <li class="{{ request()->is('expense/*') ? 'active' : '' }}">
-                        <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="{{ Request::is('bankaccount/*')?'true':'false'}}"><i class="mdi mdi-chart-scatterplot-hexbin"></i><span class="hide-menu"> Expense</span></a>
-                        <ul aria-expanded="{{ Request::is('expense/*')?'true':'false'}}" class="collapse {{ Request::is('expense/*')?'in':''}}">
-                            @if(Sentinel::hasAccess('expense-index'))
-                            <li><a href="{{url('expense/')}}" class="{{ request()->is('/expense/') ? 'active' : '' }}"><i class="mdi mdi-dns"></i> Manage Expenses</a></li>
-                            @endif
-                            @if(Sentinel::hasAccess('expense-create'))
-                                <li><a href="{{url('expense/create')}}" class="{{ request()->is('/expense/create') ? 'active' : '' }}"><i class="mdi mdi-open-in-new"></i> Add Expense</a></li>
-                            @endif
-                            @if(Sentinel::hasAccess('expenseCategory-index'))
-                                <li class="{{ (Request::is('category/*'))?'active':''}}">
-                                    <a class="has-arrow" href="#" aria-expanded="{{ (Request::is('expenses/category/*')) ?'true':'false'}}"><i class="mdi mdi-lan"></i> Categories</a>
-                                    <ul aria-expanded="{{ (Request::is('category/*'))?'true':'false'}}" class="collapse {{ (Request::is('category/*') || Request::is('category/*'))?'in':''}}">
-                                        @if(Sentinel::hasAccess('expenseCategory-index'))
-                                            <li><a href="{{url('expenses/category/')}}" class="{{ request()->is('expenses/category/') ? 'active' : '' }}"><i class="mdi mdi-format-list-bulleted"></i> Manage Categories</a></li>
-                                        @endif
-                                        @if(Sentinel::hasAccess('expenseCategory-create'))
-                                            <li><a href="{{url('expenses/category/create')}}" class="{{ request()->is('expenses/category/create') ? 'active' : '' }}"><i class="mdi mdi-open-in-new"></i> New Category</a></li>
-                                        @endif
-                                    </ul>
-                                </li>
-                            @endif
-                        </ul>
-                    </li>
-                @endif --}}
 
                 @if(Sentinel::hasAccess('tax-management'))
                     <li class="{{ request()->is('taxes*') ? 'active' : '' }}">
