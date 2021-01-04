@@ -1,5 +1,5 @@
 
-@extends('layout.app',['pageTitle' => 'New Test Category'])
+@extends('layout.app',['pageTitle' => 'Admission POS'])
 @section('content')
 
 @push('css')
@@ -10,13 +10,13 @@
 }
     
 @page {
-    size: A4;
+    size: 90mm;
     margin: 0;
 }
 @media print {
     html, body {
-        width: 95mm;
-        height: 297mm;  
+        width: 88mm;
+        height: auto;  
         margin: 0 auto;      
     }
    
@@ -65,7 +65,7 @@ tbody.borderhade tr {
                             </tr>
                         </thead>
                         <tbody class="borderhade">
-                            <?php $sl = 0; ?>
+                            <?php $sl = 0;?>
                             @foreach($invoicePrint->given_services as $row)
                                 <tr class="">
                                     <td class="text-center">{{ sprintf('%02d',++$sl) }}</td>

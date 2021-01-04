@@ -397,16 +397,16 @@ class HmsAdmissionsController extends Controller
         $admission->update($data);
         $this->batchUpdate($request,$admission->id);
         $stayDay = Pharma::two_date_diff($admission->date,$request->discharge_date);
-        $data = [
-            'service_date'  => date('Y-m-d'),
-            'admission_id'  => $admission->id,
-            'service_id'    => 0,
-            'service_name'  => "Bed Service {$admission->bed->bed_no} ({$admission->bed->price} X {$stayDay} Days)",
-            'service_price' => $admission->bed->price * $stayDay,
-            'user_id'       => Sentinel::getUser()->id,
-            'patient_id'    => $admission->patient_id,
-        ];
-        HmsGivenService::create($data);
+        // $data = [
+        //     'service_date'  => date('Y-m-d'),
+        //     'admission_id'  => $admission->id,
+        //     'service_id'    => 0,
+        //     'service_name'  => "Bed Service {$admission->bed->bed_no} ({$admission->bed->price} X {$stayDay} Days)",
+        //     'service_price' => $admission->bed->price * $stayDay,
+        //     'user_id'       => Sentinel::getUser()->id,
+        //     'patient_id'    => $admission->patient_id,
+        // ];
+        // HmsGivenService::create($data);
 
         HmsBed::where('patient',$admission->patient_id)->update(['patient'=>0]);
 

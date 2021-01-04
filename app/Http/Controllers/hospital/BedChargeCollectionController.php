@@ -119,7 +119,7 @@ class BedChargeCollectionController extends Controller
 
     private function makeTransaction($invoice,$result,$patientId){
         $transaction = New Transation;
-        $url = url('hospital/bedcharge/invoice/a4/'.$invoice);
+        $url = url('hospital/bedcharge/invoice/pos/'.$invoice);
         $trans = $transaction->create([
             'date'                  => date('Y-m-d'),
             'trans_id'              => Pharma::GenarateInvoiceNumber('transations',session()->get('settings')[0]['transaction_prefix']),
