@@ -10,14 +10,14 @@
 }
     
 @page {
-    size: A4;
+    size: 90mm 300mm;
     margin: 0;
 }
 @media print {
     html, body {
-        width: 95mm;
-        height: 297mm;  
-        margin: 0 auto;      
+        width: 88mm;
+        height: auto;  
+        margin: 0 auto;       
     }
    
 }

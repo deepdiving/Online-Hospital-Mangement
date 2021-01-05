@@ -10,7 +10,7 @@
 }
     
 @page {
-    size: 90mm;
+    size: 90mm 300mm;
     margin: 0;
 }
 @media print {
