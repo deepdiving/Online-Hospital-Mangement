@@ -10,15 +10,16 @@
 }
     
 @page {
-    size: 90mm 300mm;
+    size: 6in 8in;
     margin: 0;
 }
 @media print {
     html, body {
-        width: 88mm;
+        width: 4.5in;
         height: auto;  
         margin: 0 auto;      
     }
+    .pageBreak {page-break-before: always;}
    
 }
 tbody.borderhade tr {
@@ -132,7 +133,7 @@ tbody.borderhade tr {
                     </div> 
 
 
-                    <hr>
+                    <hr class="pageBreak">
 
 
                     <h4 class="text-center font-weight-bold">Hospital {{session()->get('settings')[0]['site_name']}}</h4>
