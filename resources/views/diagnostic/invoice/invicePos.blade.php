@@ -10,15 +10,16 @@
 }
     
 @page {
-    size: 90mm 300mm;
+    size: 6in 8in;
     margin: 0;
 }
 @media print {
     html, body {
-        width: 88mm;
+        width: 4.5in;
         height: auto;  
         margin: 0 auto;       
     }
+    .pageBreak {page-break-before: always;}
    
 }
 tbody.borderhade tr {
@@ -120,7 +121,7 @@ tbody.borderhade tr {
                     </div> 
 
 
-                    <hr>
+                    <hr class="pageBreak">
 
 
                     <h4 class="text-center font-weight-bold"> {{session()->get('settings')[0]['site_name']}}</h4>
@@ -202,7 +203,7 @@ tbody.borderhade tr {
                             </p> 
                         </div> 
                     </div>        
-                    <hr> 
+                    <hr class="pageBreak">
                     <h4 class="text-center font-weight-bold"> {{session()->get('settings')[0]['site_name']}}</h4>
                     <p class="text-center">{{session()->get('settings')[0]['address']}} <br> {{session()->get('settings')[0]['phone_number']}}</p>
                     <p class="d-inline-block">

@@ -366,6 +366,7 @@ class Pharma
 
     public function getBedChargeCollection($patient_id){
         $admission = HmsAdmission::where('patient_id',$patient_id)->where('status','Active')->first();
+        $charge = 0;
         if(!empty($admission)){
             $collect = BedChargeCollection::where('admission_id',$admission->id)->first();
             if(!empty($collect)){
@@ -374,12 +375,16 @@ class Pharma
                 }else{
                     $day = $this->two_date_diff($collect->updated_at,date('Y-m-d'));
                 }
-                $charge = $admission->bed->price;
+                if($admission->bed){
+                    $charge = $admission->bed->price;
+                }
                 return $day*$charge + $collect->due;
             }else{
                 if(!empty($admission)){
                     $day = $this->two_date_diff($admission->date,date('Y-m-d'));
-                    $charge = $admission->bed->price;
+                    if($admission->bed){
+                        $charge = $admission->bed->price;
+                    }
                     return $day*$charge;
                 }
             }

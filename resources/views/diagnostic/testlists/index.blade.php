@@ -40,7 +40,7 @@
                                         {{ $testList->name }}
                                     </td>
                                     <td>
-                                        {{ $testList->category->category }}
+                                        {{ $testList->category ? $testList->category->category : 'No Category Found' }}
                                     </td> 
                                     <td class="text-right">
                                         {{ Pharma::amountFormatWithCurrency($testList->price) }}

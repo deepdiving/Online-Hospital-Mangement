@@ -31,12 +31,12 @@ Admission
                             @foreach($admissions as $admission)
                             <tr>
                                 <td>{{ sprintf("%02s",++$i) }}</td> 
-                                <td>{{ $admission->patient->patient_name }}</td>
+                                <td>{{ $admission->patient ? $admission->patient->patient_name : 'no patient found' }}</td>
                                 <td>{{ $admission->invoice }}</td>
-                                <td>{{ $admission->bed->bed_no }}</td>
+                                <td>{{ $admission->bed ? $admission->bed->bed_no : 'no bed found'}}</td>
                                 <td class="text-right">{{ Pharma::amountFormatWithCurrency($admission->paid_amount) }}</td>
                                 <td class="text-right">{{ Pharma::amountFormatWithCurrency($admission->due) }}</td>
-                                <td>{{ $admission->referral->name }}</td>  
+                                <td>{{ $admission->referral ? $admission->referral->name : 'no refferal found' }}</td>  
                                 <td style="display: flex; justify-content: space-evenly;">
                                     <a class="btn waves-effect waves-light text-light btn-xs btn-primary" href="{{url('hospital/admission/invoice/a4/'.$admission->invoice)}}"><i class="mdi mdi-format-align-justify"></i> A4</a> 
                                     <a class="btn waves-effect waves-light text-light btn-xs btn-primary" href="{{url('hospital/admission/invoice/pos/'.$admission->invoice)}}"><i class="mdi mdi-format-align-justify"></i> Pos</a>
